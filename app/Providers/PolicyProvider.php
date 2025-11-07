@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
 use App\Policies\UserPolicy;
+use App\Models\Customer;
+use App\Policies\CustomerPolicy;
 
 class PolicyProvider extends ServiceProvider
 {
@@ -26,5 +28,6 @@ class PolicyProvider extends ServiceProvider
     {
         Gate::policy(Role::class, RolePolicy::class);
         Gate::policy(User::class, UserPolicy::class);
+        Gate::policy(Customer::class, CustomerPolicy::class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Customer;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;
@@ -21,6 +22,26 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             RolePermissionSeeder::class,
             CustomerStatusSeeder::class,
+        ]);
+
+        Customer::create([
+           'type' => 'individual',
+            'first_name' => 'Customer',
+            'last_name' => '1',
+            'email' => 'customer1@example.com',
+            'phone' => '1234567890',
+            'address' => '123 Main St',
+            'status_id' => 1,
+        ]);
+
+        Customer::create([
+            'type' => 'individual',
+            'first_name' => 'Customer',
+            'last_name' => '2',
+            'email' => 'customer2@example.com',
+            'phone' => '0987654321',
+            'address' => '456 Elm St',
+            'status_id' => 2,
         ]);
     }
 }

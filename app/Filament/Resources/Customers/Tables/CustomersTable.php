@@ -8,6 +8,8 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
+use Ysfkaya\FilamentPhoneInput\Tables\PhoneColumn;
+use Ysfkaya\FilamentPhoneInput\PhoneInputNumberType;
 
 class CustomersTable
 {
@@ -15,15 +17,17 @@ class CustomersTable
     {
         return $table
             ->columns([
+                TextColumn::make('type')
+                    ->label('Müşteri Tipi')
+                    ->getStateUsing(fn($record) => $record->type->label()),
                 TextColumn::make('name')
                     ->label('Müşteri Ünvanı')
                     ->searchable(),
                 TextColumn::make('email')
                     ->label('E-Posta')
                     ->searchable(),
-                TextColumn::make('phone')
-                    ->label('Telefon')
-                    ->searchable(),
+                PhoneColumn::make('phone')
+                    ->label('Telefon')->displayFormat(PhoneInputNumberType::NATIONAL),
                 TextColumn::make('assignedUser.name')
                     ->label('Sorumlu'),
                 TextColumn::make('status.name')

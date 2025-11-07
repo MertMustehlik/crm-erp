@@ -29,7 +29,8 @@ class RolePermissionSeeder extends Seeder
                 'role delete',
             ],
             'customer' => [
-                'customer view',
+                'customer view', // tüm müşterileri görebilir
+                'customer view own', //sadece kendisine atanan müşterilerini görebilir
                 'customer create',
                 'customer edit',
                 'customer delete',
