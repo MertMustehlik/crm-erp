@@ -41,8 +41,8 @@ return new class extends Migration
             $table->foreignId('status_id')->nullable()->constrained('customer_statuses')->nullOnDelete();
             $table->foreignId('assigned_user_id')->nullable()->constrained('users')->nullOnDelete();
 
-            $table->timestamps();
-            $table->softDeletes();
+            $table->timestampsTz();
+            $table->softDeletesTz();
         });
     }
 

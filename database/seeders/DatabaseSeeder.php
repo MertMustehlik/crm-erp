@@ -8,6 +8,8 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\RolePermissionSeeder;
 use Database\Seeders\CustomerStatusSeeder;
+use Database\Seeders\UnitSeeder;
+use Database\Seeders\ProductSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,13 +21,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            UnitSeeder::class,
             UserSeeder::class,
             RolePermissionSeeder::class,
-         //   CustomerStatusSeeder::class,
+            CustomerStatusSeeder::class,
+            ProductSeeder::class,
         ]);
 
-        /*Customer::create([
-           'type' => 'individual',
+        Customer::create([
+            'type' => 'individual',
             'first_name' => 'Customer',
             'last_name' => '1',
             'email' => 'customer1@example.com',
@@ -42,6 +46,6 @@ class DatabaseSeeder extends Seeder
             'phone' => '0987654321',
             'address' => '456 Elm St',
             'status_id' => 2,
-        ]);*/
+        ]);
     }
 }

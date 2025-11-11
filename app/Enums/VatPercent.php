@@ -2,17 +2,20 @@
 
 namespace App\Enums;
 
-enum CustomerType: string
+enum VatPercent: int
 {
-    case INDIVIDUAL = 'individual';
-    case CORPORATE = 'corporate';
-
+    case ZERO = 0;
+    case ONE = 1;
+    case TEN = 10;
+    case TWENTY = 20;
 
     public function label(): string
     {
         return match ($this) {
-            self::INDIVIDUAL => 'Bireysel',
-            self::CORPORATE => 'Kurumsal',
+            self::ZERO   => '0%',
+            self::ONE    => '1%',
+            self::TEN    => '10%',
+            self::TWENTY => '20%',
         };
     }
 

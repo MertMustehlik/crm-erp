@@ -16,15 +16,15 @@ class TypeStatsWidget extends StatsOverviewWidget
         return [
             Stat::make('Toplam', Customer::count())
                 ->description('Toplam müşteri sayısı')
-                ->descriptionIcon(Heroicon::ClipboardDocumentList, IconPosition::Before)
+                ->descriptionIcon(Heroicon::AdjustmentsHorizontal, IconPosition::Before)
                 ->color('primary'),
             Stat::make('Bireysel', Customer::where('type', CustomerType::INDIVIDUAL->value)->count())
                 ->description('Toplam bireysel müşteri sayısı')
-                ->descriptionIcon(Heroicon::ClipboardDocumentList, IconPosition::Before)
+                ->descriptionIcon(Heroicon::OutlinedUser, IconPosition::Before)
                 ->color('primary'),
             Stat::make('Kurumsal', Customer::where('type', CustomerType::CORPORATE->value)->count())
                 ->description('Toplam kurumsal müşteri sayısı')
-                ->descriptionIcon(Heroicon::ClipboardDocumentList, IconPosition::Before)
+                ->descriptionIcon(Heroicon::OutlinedBriefcase, IconPosition::Before)
                 ->color('primary'),
         ];
     }

@@ -22,10 +22,7 @@ class CustomerForm
                     ->schema([
                         Select::make('type')
                             ->label('Müşteri Tipi')
-                            ->options([
-                                CustomerType::INDIVIDUAL->value => 'Bireysel',
-                                CustomerType::CORPORATE->value => 'Kurumsal',
-                            ])
+                            ->options(CustomerType::options())
                             ->native(false)
                             ->required()
                             ->default(CustomerType::INDIVIDUAL->value)
@@ -71,8 +68,13 @@ class CustomerForm
                                 TextInput::make('email')
                                     ->label('E-posta')
                                     ->email()
-                                    ->required(),
+                                    ->unique('customers', 'email')
+                                    ->required()
+                                    ->validationMessages([
+                                        'unique' => 'Bu e-posta adresi zaten kullanılıyor. Eğer silinmiş bir hesapta bu adres kullanılmış ise ve tekrar kullanılmak isteniyor ise yönetici ile iletişime geçiniz.',
+                                    ]),
                                 PhoneInput::make('phone')
+                                    ->label('Telefon')
                                     ->initialCountry('TR'),
                                 Textarea::make('address')
                                     ->label('Adres'),
