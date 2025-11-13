@@ -6,6 +6,23 @@ Geliştirilebilir bir altyapı sunar.
 
 ---
 
+## 🌍 Canlı Demo
+
+🔗 **Uygulamayı canlı incele:**  
+👉 [https://crm-erp-production.up.railway.app/admin](https://crm-erp-production.up.railway.app/admin)
+
+---
+
+## 🔐 Demo Giriş Bilgileri
+
+| Rol      | E-posta        | Şifre  |
+| -------- | -------------- | ------ |
+| 👑 Admin | admin@demo.com | 123123 |
+
+> ⚠️ Demo verileri düzenli olarak sıfırlanabilir.
+
+---
+
 ## 📷 Panel Görseli
 
 <img src="public/images/panel.png" alt="Admin Panel" width="1200"/>
@@ -25,6 +42,15 @@ Geliştirilebilir bir altyapı sunar.
 -   Durum tanımlama
 -   Duruma göre müşteri filtreleme
 
+### ✅ Ürün Yönetimi
+
+-   Ürün yönetimi
+
+### ✅ Satış & Fatura Takibi
+
+-   Fatura oluşturma
+-   Fatura geçmişi görüntüleme
+
 ### ✅ Kullanıcı Yönetimi
 
 -   Kullanıcı oluşturma / düzenleme / rol atama
@@ -41,20 +67,23 @@ Geliştirilebilir bir altyapı sunar.
 
 Aşağıdaki özelliklerin proje kapsamına dahil edilmesi planlanmaktadır:
 
-### 🔹 Ürün Yönetimi
-
--   Ürün listesi
--   Ürün kategorileri
--   Ürün detay sayfası
-
-### 🔹 Satış & Fatura Takibi
-
--   Fatura oluşturma
--   Fatura geçmişi görüntüleme
-
 ### 🔹 Stok Takibi
 
 -   Stok miktarı kontrolü
 -   Stok hareket geçmişi
+-   Ürün giriş/çıkış işlemlerinin detaylı kaydı
 
 ---
+
+### 🔹 Aktivite Geçmişi (Activity Logs)
+
+-   Tüm sistem hareketleri **otomatik olarak kayıt altına alınıyor**
+-   Yakında bu kayıtlar **admin panelinde tablo olarak görüntülenebilir** hale gelecek
+
+---
+
+### 🔹 Raporlama ve Analiz
+
+-   Satış grafikleri
+-   Aylık gelir-gider raporları
+-   KDV oranlarına göre fatura dağılımı
