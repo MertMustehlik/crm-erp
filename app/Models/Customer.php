@@ -9,10 +9,12 @@ use App\Models\CustomerStatus;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
 class Customer extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, LogsActivity;
 
     protected $fillable = [
         'type',
@@ -34,6 +36,12 @@ class Customer extends Model
         return [
             'type' => CustomerType::class,
         ];
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['type', 'company_name', 'tax_number', 'tax_office', 'first_name', 'last_name', 'identity_number', 'email', 'phone', 'address', 'status_id', 'assigned_user_id']);
     }
 
     public function status(): BelongsTo

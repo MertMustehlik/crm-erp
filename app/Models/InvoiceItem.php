@@ -9,10 +9,14 @@ use App\Observers\InvoiceItemObserver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
 #[ObservedBy(InvoiceItemObserver::class)]
 class InvoiceItem extends Model
 {
+    use LogsActivity;
+
     protected $fillable = [
         'invoice_id',
         'product_id',
@@ -24,6 +28,12 @@ class InvoiceItem extends Model
         'vat_percent',
         'line_total',
     ];
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['invoice_id', 'product_id', 'unit_id', 'name', 'quantity', 'unit_name', 'price', 'vat_percent', 'line_total']);
+    }
 
     public function invoice(): BelongsTo
     {

@@ -7,10 +7,12 @@ use App\Models\Unit;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
 class Product extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, LogsActivity;
 
     protected $fillable = [
         'sku',
@@ -20,6 +22,12 @@ class Product extends Model
         'stock',
         'unit_id',
     ];
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['sku', 'name', 'price', 'vat_percent', 'stock', 'unit_id']);
+    }
 
     public function unit(): BelongsTo
     {
