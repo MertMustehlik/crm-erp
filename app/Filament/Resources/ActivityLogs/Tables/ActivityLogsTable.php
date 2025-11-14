@@ -65,7 +65,7 @@ class ActivityLogsTable
                     ),
                 DateRangeFilter::make('created_at')
                     ->label('Tarih'),
-                ], layout: FiltersLayout::AboveContent)
+            ], layout: FiltersLayout::AboveContent)
             ->recordActions([
                 ViewAction::make()
                     ->label('Aktivite Detay')
@@ -97,7 +97,7 @@ class ActivityLogsTable
                             $html .= '<table style="width:100%; border-collapse: collapse;">';
                             foreach ($new as $key => $value) {
                                 $changed = $old[$key] ?? null;
-                                $rowStyle = ($changed != $value) ? 'background:#fff8e6;' : '';
+                                $rowStyle = ($changed != $value) ? 'background-color: #9f996d;' : '';
                                 $html .= "<tr style='{$rowStyle}'>
                             <td style='padding:6px; font-weight:600; border-bottom:1px solid #ccc;'>{$key}</td>
                             <td style='padding:6px; border-bottom:1px solid #ccc;'>{$value}</td>
